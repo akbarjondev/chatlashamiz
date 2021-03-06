@@ -1,9 +1,7 @@
-const express = require('express')
 const socket = require('socket.io')
+const express = require('express')
 const http = require('http')
 const ejs = require('ejs')
-
-const PORT = 4000
 
 const app = express()
 const server = http.createServer(app)
@@ -11,11 +9,19 @@ const IO = socket(server)
 
 app.engine('html', ejs.renderFile)
 app.set('view engine', 'html')
-
 app.use(express.static('static'))
 
 app.get('/', (req, res) => {
-	res.send('ok')
+
+	res.renderFile('index.html')
 })
 
-server.listen(PORT, () => console.log(`ready at http://localhost:${PORT}`))
+IO.on('connection', (client) => {
+	console.log('client connected')
+
+	client.on('disconnect', () => {
+		console.log('client disconnected...')
+	})
+})
+
+server.listen(4000, () => console.log(`ready at http://localhost:4000`))
