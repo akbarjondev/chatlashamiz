@@ -28,5 +28,6 @@ const fetch = async (SQL, ...params) => {
 		console.log('connection lost')
 
 	}
-
 }
+
+module.exports.fetch = fetch
