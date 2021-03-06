@@ -7,13 +7,14 @@
 </head>
 <body>
 	salom
-	
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.2/socket.io.min.js"></script>
 	<script>
 		const socket = io()
 
-		console.log(socket)
+		// console.log(socket)
+
+		socket.on('message', (data) => console.log(data))
   </script>
 </body>
 </html>
