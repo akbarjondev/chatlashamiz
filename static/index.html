@@ -3,18 +3,44 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Real Time App</title>
+	<link rel="stylesheet" href="./css/style.css">
+	<title>Sign in</title>
 </head>
 <body>
-	salom
+	<div class="card">
+		<div class="card__top">
+			<h1 class="card__heading">Welcome back!</h1>
+			<div class="card__text">Sign in to continue</div>
+		</div><!-- End of card__top -->
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.2/socket.io.min.js"></script>
-	<script>
-		const socket = io()
+		<div class="card__body">
+			<img class="card__avatar" width="72" height="72" src="./img/Avatar_Image.png" srcset="./img/Avatar_Image.png 1x, ./img/Avatar_Image@2x.png 2x" alt="Avatar image">
 
-		// console.log(socket)
+			<form class="form card__form" action="https://www.example.com">
+				<div class="form__group">
+					<label class="form__label" for="inputName">Username</label>
+					<input class="form__input" type="text" placeholder="Enter username" name="username" id="inputName" autocomplete="off" spellcheck="false" required>
+				</div>
 
-		socket.on('message', (data) => console.log(data))
-  </script>
+				<div class="form__group">
+					<label class="form__label" for="inputPassword">Password</label>
+					<input class="form__input" type="text" placeholder="Enter password" name="password" id="inputPassword" autocomplete="off" spellcheck="false" required>
+				</div>
+
+				<div class="form__group form__group-checkbox">
+					<input class="form__input form__input-checkbox" name="remember" type="checkbox" id="checkbox">
+					<label class="form__label form__label-checkbox" for="checkbox">Remember me</label>
+				</div>
+
+				<button type="submit" class="form__submit">Log in</button>
+			</form>
+
+			<a class="card__forget" href="#">Forget your password?</a>
+
+		</div><!-- End of card__body -->
+	</div><!-- End of card -->
+
+	<div class="signup">Don’t have an account ? <a class="signup__link" href="#">Signup now</a></div>
+	<div class="copy">© 2020 Crafted and designed by 10ursabanoglu. 🎉</div>
 </body>
 </html>
