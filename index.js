@@ -8,7 +8,7 @@ const CONFIG = require('./src/config/config.js')
 const app = express()
 const server = http.createServer(app)
 
-serverHandler.run(app)
+serverHandler.run(app, express)
 socketHandler.run(server)
 
 server.listen(CONFIG.PORT, () => console.log(`ready at http://localhost:${CONFIG.PORT}`))
